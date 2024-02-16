@@ -1,0 +1,53 @@
+#include <iostream>
+using namespace std;
+
+class MyErrExceptions : public exception
+{
+    
+};
+
+class MyException
+{
+    
+};
+
+
+int Division(int a, int b) throw (MyException, MyErrExceptions)
+{
+    if(b == 0)
+        throw MyException();
+    if( a == 0)
+        throw MyErrExceptions();
+    return a/b;
+}
+int main()
+{
+    std::cout<<"Hello World"<< endl;
+    
+    int a= 0, b = 10, c;
+    
+    try
+    {
+        // if(b == 0)
+        //    throw 1.0;          // Erro needs to be thrown 
+    
+        // c = a/b;
+        
+        Division(a, b);
+        
+    }catch(int e)
+    {
+        cerr << "error is thrown" << endl;
+    }
+    catch(MyException e)
+    {
+        cout << "My Exception error is thrown." << endl;
+    }
+    catch(...)
+    {
+        cerr << "common error is thrown" << endl;
+    }
+
+    cout << " c = " << c << endl;
+    return 0;
+}
