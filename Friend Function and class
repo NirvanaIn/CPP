@@ -1,0 +1,47 @@
+#include <iostream>
+using namespace std;
+
+class your;
+class my
+{                   // using friend function
+    public:
+    my(){
+        a=11;
+        b=22;
+        c=33;
+    }
+    my(int a, int b, int c){
+        this->a=a;
+        this->b=b;
+        this->c=c;
+    }
+    int a;
+    private:
+    int b;
+    protected:
+    int c;
+    friend your;        // forward declaration required to use class name here.433HW354UI=9O8
+    friend void testFriend();
+};
+
+void testFriend()
+{
+    my obj(44,55,66);
+    cout << obj.a <<"\n" << obj.b <<"\n"<< obj.c << endl;
+}
+
+class your
+{
+    public:
+    my obj;
+    void Stop(){
+        cout << obj.a <<"\n"<< obj.b <<"\n"<< obj.c <<"\n"<< endl;  // can not acces private / protected members of the class; declare your class as friend class of my class
+    }
+};
+int main()
+{
+    your obj;
+    obj.Stop();
+    testFriend();
+    return 0;
+}
