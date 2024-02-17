@@ -1,0 +1,50 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    const int x =10;
+    cout << "x = " << x << endl;
+    // x++;    // const can not be modified error: increment of read-only variable ‘x’
+    cout << "x = " << x << endl;
+    
+    int px = 101;
+    int * ptrX = nullptr;
+    ptrX = &px;
+    cout << "*ptrX = " << *ptrX << endl;
+    
+    int py1 = 101;
+    int py2 = 201;
+    
+    // ponter to inst const 
+    const int * ptrY = nullptr;    // pointer to const int or pointer to int const - value can not be changed but pter itself can be changed
+    // ++(*ptrY); // error: increment of read-only location ‘* ptrY’
+    // *ptrY = 22;     error: assignment of read-only location ‘* ptrY’
+    
+    ptrY = &py1;
+    cout << "*ptrY1 = " << *ptrY << " Address contained in ptrY = " << ptrY << endl;
+    ptrY = &py2;
+    cout << "*ptrY2 = " << *ptrY << " Address contained in ptrY = " << ptrY << endl;
+    
+    ++ptrY;
+    //============================
+    
+    // constant pointer to interger
+    int cx = 20;
+    int * const ptrConst = &cx;
+    //int * const ptrConst2 = nullptr;
+    
+    cout << "*ptrConst = " << *ptrConst << endl;
+    
+    // ++ptrConst;   // error: increment of read-only variable ‘ptrConst’
+    
+    // const ptr to int const - data and ptr both can not be modified
+    
+    // const int * const ptrxy = 10;   // error: invalid conversion from ‘int’ to ‘const int*’ [-fpermissive]
+    
+    const int * const ptrxy = &cx;   
+    
+    // ++ptrxy;     // error: increment of read-only variable ‘ptrxy’
+    // ++(*ptrxy);  // error: increment of read-only location ‘*(const int*)ptrxy’
+    return 0;
+}
