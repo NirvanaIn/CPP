@@ -1,0 +1,18 @@
+#include <iostream>
+using namespace std;
+
+//#define PI 3.14
+
+#ifndef PI
+#define PI 3
+#endif
+
+#define MSG(x) #x
+
+int main()
+{
+    cout << "PI = " << PI << endl;
+    
+    cout << MSG(Hello) << endl;
+    return 0;
+}
