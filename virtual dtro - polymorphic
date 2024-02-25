@@ -1,0 +1,54 @@
+#include <iostream>
+using namespace std;
+
+class Base
+{
+public:
+
+    Base(){
+        cout << "Base class constructor...! " << endl;
+    }
+    
+    virtual void display(){
+        cout << "base::display" << endl;
+    }
+    
+    virtual ~Base(){        // to call derived dtor we need base dtor as virtual or it won't delete derived object if it is called base class * ptr
+        cout << "Base class Dtor " << endl;
+    }
+};
+
+class Derived : public Base
+{
+public:
+    Derived(){
+        cout << "Derived class constructor...! " << endl;
+    }
+    virtual void display(){
+        cout << "Derived::display" << endl;
+    }
+    ~Derived(){
+        cout << "Derived:: class Dtor!" << endl;
+    }    
+};
+
+int main()
+{
+    Base *bObj = new Base();
+    bObj->display();
+    delete bObj;
+    
+    cout << "==================== Derived:: class ================" << endl;
+    
+    Derived *dObj = new Derived();
+    dObj->display();
+    delete dObj;
+    
+    cout << "==================== Derived:: class ================" << endl;
+    
+    Base *BDObj = new Derived();
+    BDObj->display();
+    delete BDObj;
+    
+    return 0;
+}
