@@ -1,0 +1,38 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int option = 1;
+    cout << " 1. Add \n 2. sub \n 3. multiplication \n 4. div" << endl;   
+    cin >> option;
+    int a,b,c;
+    cout << "Enter 2 Nos: " << endl;
+    cin >> a >> b;
+    
+    switch(option){
+        case 1:
+            c = a + b;
+            break;
+        case 2:
+            c = a - b;
+            break;
+        case 3:
+            c = a * b;
+            break;
+        case 4:
+            c = a / b;
+            break;
+        default:
+            cout << "wrong option" << endl; 
+    }
+    
+    cout << "o/p = " << c << endl;
+    return 0;
+}
+
+
+
+
+
+
