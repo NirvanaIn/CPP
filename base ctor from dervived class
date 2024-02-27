@@ -1,0 +1,29 @@
+#include <iostream>
+#include <array>
+
+using namespace std;
+
+class Base
+{
+public:
+    Base(int a){
+        cout << "Base : = " << a << endl;
+    }
+};
+
+class Derived: public Base
+{
+public:
+    Derived(int a) : Base(a) {
+        cout << "Derived : = " << a << " " << a << endl;
+    }
+};
+
+int main()
+{
+    Derived obj(20);
+    
+    // std::cout<<"Hello World";
+
+    return 0;
+}
