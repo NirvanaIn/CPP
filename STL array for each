@@ -1,0 +1,25 @@
+#include <iostream>
+#include <array>
+
+using namespace std;
+
+int main()
+{
+    array<int, 10> arr={10,20,30,40,50};  // intializer list
+    
+    array<int, 5> arr2 {10,20,30,40,50}; // uniform intializer
+    /*
+    for(auto it = arr.begin(); it != arr.end() ; it++)
+    {
+        cout << *it << endl;
+    }
+    
+    */
+    for(int x:arr2)
+        cout << x << endl;
+    
+    for(int i = 0; i< arr.size() ; i++)
+        cout << arr[i] << endl;
+    
+    return 0;
+}
